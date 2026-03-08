@@ -114,7 +114,7 @@ plt.show()
 #===============================
 np.random.seed(42)
 productos = [f'Producto_{i}' for i in range(1, 11)]
-ciudades = ['Lima', 'Bogotá', 'Santiago', 'Ciudad_4', 'Ciudad_5']
+ciudades = ['Lima', 'Bogotá', 'Santiago', 'Quito', 'Asunción']
 regiones = [f'Región_{i}' for i in range(1, 31)]
 
 data_grande = {
@@ -147,3 +147,15 @@ plt.grid(True)
 plt.savefig('Dispersion.png')  # Guardar el gráfico de dispersión
 plt.show()
 
+# Gráfico de calor: Ventas por Ciudad y Región
+ventas_ciudad_region = df_grande.pivot_table(values='Ventas', index='Ciudad', columns='Región', aggfunc='sum', fill_value=0)
+plt.figure(figsize=(12, 8))
+plt.imshow(ventas_ciudad_region, cmap='YlOrRd', aspect='auto')
+plt.xticks(range(len(ventas_ciudad_region.columns)), ventas_ciudad_region.columns, rotation=45)
+plt.yticks(range(len(ventas_ciudad_region.index)), ventas_ciudad_region.index)
+plt.title('Ventas por Ciudad y Región')
+plt.xlabel('Región')
+plt.ylabel('Ciudad')
+plt.colorbar(label='Ventas Totales')
+plt.savefig('Calor.png')  # Guardar el gráfico de calor
+plt.show()
