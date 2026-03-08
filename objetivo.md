@@ -1,0 +1,1 @@
+Aplicar los conocimientos de NumPy, Pandas y Matplotlib para analizar un conjunto de datos, realizar cálculos estadísticos y visualizar los resultados mediante gráficos.
