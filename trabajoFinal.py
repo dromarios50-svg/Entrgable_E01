@@ -81,7 +81,7 @@ print(f"Valor mínimo: {minimo}")
 #VISUALIZACION DE DATOS CON MATPLOTLIB
 #===============================
 # Gráfico de Barras: Ventas por producto
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(10, 8))
 plt.bar(df['Producto'], df['Ventas'], color='skyblue')
 plt.title('Ventas por Producto')
 plt.xlabel('Producto')
@@ -91,7 +91,7 @@ plt.savefig('Barras.png')  # Guardar el gráfico de barras
 plt.show()
 
 # Gráfico de Línea: Cantidad vendida por producto
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(10, 8))
 plt.plot(df['Producto'], df['Cantidad'], marker='o', color='green')
 plt.title('Cantidad Vendida por Producto')
 plt.xlabel('Producto')
@@ -103,7 +103,7 @@ plt.show()
 
 # Gráfico de Pastel: Distribución de ventas por ciudad
 ventas_por_ciudad = df.groupby('Ciudad')['Ventas'].sum()
-plt.figure(figsize=(8, 8))
+plt.figure(figsize=(10, 8))
 plt.pie(ventas_por_ciudad, labels=ventas_por_ciudad.index, autopct='%1.1f%%', startangle=90)
 plt.title('Distribución de Ventas por Ciudad')
 plt.savefig('Pastel.png')  # Guardar el gráfico de pastel
@@ -129,7 +129,7 @@ df_grande = pd.DataFrame(data_grande)
 df_grande['Ventas'] = df_grande['Precio'] * df_grande['Cantidad']
 
 # Histograma de ventas
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(10, 8))
 plt.hist(df_grande['Ventas'], bins=20, color='purple', edgecolor='black')
 plt.title('Histograma de Ventas')
 plt.xlabel('Ventas')
@@ -138,7 +138,7 @@ plt.savefig('Histograma.png')  # Guardar el histograma
 plt.show()
 
 # Gráfico de dispersión: Precio vs Cantidad
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(10, 8))
 plt.scatter(df_grande['Precio'], df_grande['Cantidad'], alpha=0.6, color='red')
 plt.title('Relación entre Precio y Cantidad Vendida')
 plt.xlabel('Precio')
